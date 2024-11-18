@@ -6,6 +6,12 @@
 </head>
 <body>
 <script>
-console.log(document.referrer);
+        const referrer = document.referrer;
+
+        const referrerDiv = document.createElement('div');
+
+        referrerDiv.textContent = Реферер: ${referrer};
+
+        document.body.appendChild(referrerDiv);
 </script>
 </body>
