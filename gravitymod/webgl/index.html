@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Access-Control-Allow-Origin" content="https://app-284790.games.s3.yandex.net">
+  <meta charset="UTF-8">
   <title>OK</title>
+  <script>
+    const allowedOrigin = 'https://app-284790.games.s3.yandex.net';
+    
+    if (window.location.origin !== allowedOrigin) {
+      document.body.innerHTML = '<h1>Доступ запрещен</h1>';
+      throw new Error('Доступ запрещен');
+    }
+  </script>
 </head>
 <body>
-  <h1>OK</h1>
+  <h1>Добро пожаловать!</h1>
 </body>
 </html>
