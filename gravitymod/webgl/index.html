@@ -1,7 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta http-equiv="Access-Control-Allow-Origin" content="https://app-284790.games.s3.yandex.net">
-  <title>OK</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример CORS</title>
 </head>
 <body>
+    <h1>Пример CORS</h1>
+    <button id="fetchData">Получить данные</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('fetchData').addEventListener('click', function() {
+            fetch('https://example.com/api/data') // Замените на ваш URL
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Сеть ответила с ошибкой: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('result').innerText = JSON.stringify(data);
+                })
+                .catch(error => {
+                    document.getElementById('result').innerText = 'Ошибка: ' + error.message;
+                });
+        });
+    </script>
+</body>
+</html>
