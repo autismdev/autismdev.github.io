@@ -5,19 +5,21 @@
   <title>OK</title>
 </head>
 <body>
-<body>
+    <p id="receivedLink">Ссылка не получена.</p>
+
     <script>
-        // Получаем реферер
-        const referrer = document.referrer;
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-        // Создаем новый элемент div
-        const referrerDiv = document.createElement('div');
-
-        // Устанавливаем текст внутри div
-        referrerDiv.textContent = Реферер: ${referrer};
-
-        // Добавляем div в body
-        document.body.appendChild(referrerDiv);
+        const receivedLink = getQueryParam('link');
+        
+        if (receivedLink) {
+            document.getElementById('receivedLink').textContent = $decodeURIComponent(receivedLink);
+        } else {
+            document.getElementById('receivedLink').textContent = 'Ссылка не получена.';
+        }
     </script>
 </body>
 </html>
