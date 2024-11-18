@@ -5,13 +5,19 @@
   <title>OK</title>
 </head>
 <body>
-<script>
+<body>
+    <script>
+        // Получаем реферер
         const referrer = document.referrer;
 
+        // Создаем новый элемент div
         const referrerDiv = document.createElement('div');
 
+        // Устанавливаем текст внутри div
         referrerDiv.textContent = Реферер: ${referrer};
 
+        // Добавляем div в body
         document.body.appendChild(referrerDiv);
-</script>
+    </script>
 </body>
+</html>
