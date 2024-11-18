@@ -2,24 +2,23 @@
 <html>
 <head>
   <meta http-equiv="Access-Control-Allow-Origin" content="*">
-  <title>OK</title>
+  <title>Ссылка не получена.</title>
+  <script>
+      function getQueryParam(param) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(param);
+      }
+
+      const receivedLink = getQueryParam('link');
+      
+      if (receivedLink) {
+          document.title = decodeURIComponent(receivedLink);
+      } else {
+          document.title = 'Ссылка не получена.';
+      }
+  </script>
 </head>
 <body>
     <p id="receivedLink">Ссылка не получена.</p>
-
-    <script>
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        const receivedLink = getQueryParam('link');
-        
-        if (receivedLink) {
-            document.getElementById('receivedLink').textContent = $decodeURIComponent(receivedLink);
-        } else {
-            document.getElementById('receivedLink').textContent = 'Ссылка не получена.';
-        }
-    </script>
 </body>
 </html>
